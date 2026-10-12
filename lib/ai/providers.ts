@@ -1,12 +1,12 @@
 import { createOpenAI } from '@ai-sdk/openai';
 
-// Inisialisasi provider OpenAI yang mengarah ke 9router via ngrok
-export const customProvider = createOpenAI({
+// Konfigurasi koneksi ke 9router melalui Environment Variables Vercel
+export const customOpenAI = createOpenAI({
   baseURL: process.env.OPENAI_BASE_URL,
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Helper function untuk memanggil model
-export function getModel(modelId: string) {
-  return customProvider(modelId);
+// Fungsi untuk menerima ID model kustom dari 9router tanpa error TypeScript
+export function getLanguageModel(modelId: string) {
+  return customOpenAI(modelId);
 }
