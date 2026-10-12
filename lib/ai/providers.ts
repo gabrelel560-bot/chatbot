@@ -1,12 +1,16 @@
 import { createOpenAI } from '@ai-sdk/openai';
+import { DEFAULT_CHAT_MODEL, titleModel } from './models';
 
-// Konfigurasi koneksi ke 9router melalui Environment Variables Vercel
 export const customOpenAI = createOpenAI({
   baseURL: process.env.OPENAI_BASE_URL,
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Fungsi untuk menerima ID model kustom dari 9router tanpa error TypeScript
 export function getLanguageModel(modelId: string) {
-  return customOpenAI(modelId);
+  return customOpenAI(modelId || DEFAULT_CHAT_MODEL);
+}
+
+// --- TAMBAHKAN INI SESUAI YANG DIMINTA actions.ts ---
+export function getTitleModel() {
+  return customOpenAI(titleModel);
 }
