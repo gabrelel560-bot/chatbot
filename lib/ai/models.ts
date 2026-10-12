@@ -29,7 +29,9 @@ export const chatModels: ChatModel[] = [
 
 export const DEFAULT_CHAT_MODEL = 'kr/claude-sonnet-4.5';
 
-// Memastikan allowedModelIds mengambil semua id yang terdaftar
+// --- TAMBAHKAN INI UNTUK GENERATE TITLE CHAT ---
+export const titleModel = 'kr/claude-haiku-4.5';
+
 export const allowedModelIds = new Set(chatModels.map((model) => model.id));
 
 export async function getCapabilities() {
